@@ -53,6 +53,9 @@ class DataLocater {
 
   Future<void> getAllStores() async {
     try {
+      if (authLocater.verifyData?.token == null) {
+        return;
+      }
       final response = await api.storeMethods.getAllStores(
         token: authLocater.verifyData!.token,
       );

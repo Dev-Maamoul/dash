@@ -28,7 +28,6 @@ class MenuCubit extends Cubit<MenuState> {
       if (!isClosed) {
         emit(LoadingState());
       }
-
       await authLocater.loadData();
       if (!isClosed) {
         emit(SuccessLoadingState());

@@ -75,7 +75,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
               onPressed: () {
                 context.go('/auth/login');
               },
-              child: Text("data"),
+              child: Text("Login dashboard"),
             ),
           ),
         );

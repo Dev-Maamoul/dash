@@ -148,13 +148,13 @@ class CardHomeInfo extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: 0.05.sw,
+        height: 0.09.sw,
         width: 0.15.sw,
         padding: EdgeInsets.all(16),
         constraints: BoxConstraints(
           maxWidth: 400,
           minWidth: 100,
-          maxHeight: 60,
+          maxHeight: 100,
           minHeight: 50,
         ),
         decoration: BoxDecoration(
@@ -204,17 +204,19 @@ class CardHomeInfo extends StatelessWidget {
                   constraints: BoxConstraints(
                     maxWidth: 70,
                     minWidth: 70,
-                    maxHeight: 70,
-                    minHeight: 70,
+                    maxHeight: 120,
+                    minHeight: 120,
                   ),
                   decoration: BoxDecoration(
                     color: ColorsApp.systemGreen.withAlpha(65),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: SvgPicture.asset(
-                    fit: BoxFit.fitHeight,
-                    assetsPath ?? 'assets/svg/Group.svg',
-                    semanticsLabel: 'Dart Logo',
+                  child: FittedBox(
+                    child: SvgPicture.asset(
+                      // fit: BoxFit.fitHeight,
+                      assetsPath ?? 'assets/svg/Group.svg',
+                      semanticsLabel: 'Dart Logo',
+                    ),
                   ),
                 ),
               ),
