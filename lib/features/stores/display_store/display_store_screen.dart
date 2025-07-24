@@ -97,39 +97,42 @@ class DisplayScreenStore extends StatelessWidget {
                           SizedBox(height: 16),
 
                           BlocBuilder<StoreDisplayCubit, StoreDisplayState>(
-                            buildWhen: (previous, current) {
-                              if (current is UpdateSelected) {
-                                return true;
-                              }
-                              return false;
-                            },
+                            // buildWhen: (previous, current) {
+                            //   // if (current is SuccessProductState) {
+                            //   //   return true;
+                            //   // }
+                            //   // return false;
+                            // },
                             builder: (context, state) {
-                              return Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CardSelectRadio(
-                                    title: "المنتجات",
-                                    value: SelectType.products,
-                                    groupValue: cubit.selectedOption,
-                                    onChanged: () {
-                                      cubit.changeTypeDisplay(
-                                        selected: SelectType.products,
-                                      );
-                                    },
-                                  ),
-                                  SizedBox(width: 16),
-                                  CardSelectRadio(
-                                    title: "الطلبات",
-                                    value: SelectType.orders,
-                                    groupValue: cubit.selectedOption,
-                                    onChanged: () {
-                                      cubit.changeTypeDisplay(
-                                        selected: SelectType.orders,
-                                      );
-                                    },
-                                  ),
-                                ],
-                              );
+                              if (state is SuccessProductState) {
+                                return Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    CardSelectRadio(
+                                      title: "المنتجات",
+                                      value: SelectType.products,
+                                      groupValue: cubit.selectedOption,
+                                      onChanged: () {
+                                        cubit.changeTypeDisplay(
+                                          selected: SelectType.products,
+                                        );
+                                      },
+                                    ),
+                                    SizedBox(width: 16),
+                                    CardSelectRadio(
+                                      title: "الطلبات",
+                                      value: SelectType.orders,
+                                      groupValue: cubit.selectedOption,
+                                      onChanged: () {
+                                        cubit.changeTypeDisplay(
+                                          selected: SelectType.orders,
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                );
+                              }
+                              return SizedBox.shrink();
                             },
                           ),
                           SizedBox(height: 16),
